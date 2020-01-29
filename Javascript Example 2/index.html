@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+      body {
+        background-color: linen;
+      }
+      td {
+        height: 75px;
+        width: 75px;
+        background-color: green;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      tr:nth-child(even) td:nth-child(even) {
+        background-color: yellow;
+}
+
+    </style>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+
+      function validation(){
+        var userSubmit = document.getElementById('size').value; //takes the users input and stores it within the variable userSubmit.
+        var num_rows = userSubmit; //assigning the users input to the number of rows.
+        var num_cols = userSubmit; //assigning the users input to the number of colums.
+        var tableBody = ""; //empty string setup for the table.
+
+        for (var r=0; r<num_rows; r++){
+          tableBody += "<tr>"; //for loop going through the number of rows required to complete the table.
+            for (var c=0; c<num_cols; c++){
+              tableBody += "<td>" + "</td>";
+              console.log(c);//for loop, within the rows for loop, this is to determine the number of columns required in the table
+            }
+            tableBody += "</tr>";
+        }
+        document.getElementById('wrapper').innerHTML = ("<table>" + tableBody + "</table>");
+      }
+
+    </script>
+  </head>
+  <body>
+    <form name="form1">
+      <select id="size">
+      <option value="3">3x3</option>
+      <option value="5">5x5</option>
+      <option value="7">7x7</option>
+      </select>
+    </form>
+    <button type="submit" onclick="validation()">Generate Graph</button>
+
+    <div id="wrapper"></div>
+  </body>
+</html>
